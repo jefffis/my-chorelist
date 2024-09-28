@@ -16,30 +16,55 @@
   <section class="content--container">
     
     <!-- header -->
-    <header class="header cf" id="header">
+    <header class="header cf hidden" id="header">
       <div class="header--container">
         <img src="images/logo--holder.png" class="logo" alt="" />
         <h1 class="title">
-          <span class="personalize">My</span> Chores
+          <span class="personalize"></span>&rsquo;s Chores
         </h1>
       </div>
     </header>
     <!--/ header -->
 
     <!-- onboarding, welcome -->
-    <section class="intro hidden" id="intro--1">
-      
+    <section class="intro _hidden" id="intro--1">
+      <div class="intro--content">
+        <span class="h1">Hi there 👋</span>
+        <p class="body--large">
+          Welcome to <strong>My Chores</strong>!
+          <br />
+          What&rsquo;s your name?
+        </p>
+        <input type="text" class="intro--name" />
+        <button type="button" disabled class="btn js--set-name">Continue</button>
+      </div>
     </section>
     <!--/ onboarding, welcome -->
 
     <!-- onboarding, greeting -->
     <section class="intro hidden" id="intro--2">
-      
+      <div class="intro--content">
+        <span class="h1">Nice to meet you <span class="personal-name"></span>!</span>
+        <p class="body--large">
+          Let&rsquo;s pick an icon for you 👇
+        </p>
+        <div class="intro--images mar-bot--16">
+          <div class="grid grid--2 grid-gap--12">
+            <img src="images/icon--music.png" tabindex="0" class="app-icon" alt="" />
+            <img src="images/icon--bird.png" tabindex="0" class="app-icon" alt="" />
+          </div>
+          <div class="grid grid--2 grid-gap--12">
+            <img src="images/icon--horse.png" tabindex="0" class="app-icon" alt="" />
+            <img src="images/icon--panda.png" tabindex="0" class="app-icon" alt="" />
+          </div>
+        </div>
+        <button type="button" disabled class="btn js--set-icon">Get started</button>
+      </div>
     </section>
     <!--/ onboarding, greeting -->
 
     <!-- my chores -->
-    <section class="chores" id="chores">
+    <section class="chores hidden" id="chores">
       
       <!-- date -->
       <h2 class="body date cf">
