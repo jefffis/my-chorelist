@@ -212,8 +212,16 @@ h5, .h5 {
   float: right;
   font-weight: 700;
 }
+/*.done {
+  color: var(--blue);
+}*/
 .chore {
+  cursor: pointer;
   padding: 20px 0;
+  position: relative;
+}
+.chore:active .checkbox--label {
+  opacity: 0.64;
 }
 .chore:nth-of-type(n+2) {
   border-top: 1px solid var(--grey1);
@@ -230,7 +238,8 @@ h5, .h5 {
   display: inline-block;
   float: right;
   height: 32px;
-  position: relative;
+  position: absolute;
+  right: 0;
   transition: background-color 0.16s ease-in-out;
   width: 56px;
 }
@@ -256,9 +265,11 @@ h5, .h5 {
   left: calc(100% - 28px);
 }
 .checkbox--label {
+  display: inline-block;
   font-size: 20px;
   line-height: 32px;
   vertical-align: top;
+  width: calc(100% - 64px);
 }
 
 
