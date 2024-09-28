@@ -23,6 +23,8 @@ var header = document.querySelector('.header'),
 	my_app_icon,
 	set_icon = document.querySelector('.js--set-icon'),
 	current_logo = document.querySelector('.logo'),
+	current_app_icon = document.querySelector('.app-icon-markup'),
+	current_favicon = document.querySelector('.favicon-markup'),
 	most_recent_date;
 
 // if (localStorage.getItem('Last day used')) {
@@ -58,6 +60,8 @@ function doOnboarding() {
 
 			set_icon.disabled = false;
 			current_logo.src = my_app_icon;
+			current_app_icon.href = my_app_icon;
+			current_favicon.href = my_app_icon;
 		}
 	});
 
@@ -84,6 +88,8 @@ if (!localStorage.getItem('Has onboarded')) {
 	header.classList.remove('hidden');
 	chores_list.classList.remove('hidden');
 	current_logo.src = localStorage.getItem('App icon');
+	current_app_icon.href = localStorage.getItem('App icon');
+	current_favicon.href = localStorage.getItem('App icon');
 	show_my_name_header.innerHTML = localStorage.getItem('My name');
 }
 
