@@ -124,6 +124,7 @@ function setChoreOnLoad(el){
 	}
 
 	updateGlobalCount(is_done, is_daily, true);
+	resetDailyChores();
 }
 
 // set chore status / save locally
@@ -135,6 +136,27 @@ function setChoreStatus(el){
 	localStorage.setItem(name, is_done);
 
 	updateGlobalCount(is_done, is_daily, false);
+	resetDailyChores();
+}
+
+// set or reset daily chore status (i.e. is it a new day)
+function resetDailyChores(){
+	var were_chores_done_yesterday = localStorage.getItem('Chores done yesterday');
+
+	console.log(were_chores_done_yesterday);
+	// set today's date
+	localStorage.setItem('Chores done yesterday', date.toLocaleDateString("en-US", options));
+
+	// check today's date compared to yesterday
+	if (were_chores_done_yesterday != date.toLocaleDateString("en-US", options)) {
+		
+		// resent daily chores if I did them yesterday
+		chores.forEach(function(chore) {
+			var name = chore.name,
+			is_daily = chore.classList.contains('cb--daily') ? true : false;
+			if (is_daily) localStorage.setItem(name, 'false');
+		});
+	}
 }
 
 // update global count for chores
