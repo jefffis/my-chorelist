@@ -1,9 +1,12 @@
 var header = document.querySelector('.header'),
 	chores_list = document.querySelector('.chores'),
 	chores = document.querySelectorAll('.cb'),
+	daily_chores = document.querySelectorAll('.cb--daily').length,
+	weekly_chores = document.querySelectorAll('.cb--weekly').length,
 	done = document.querySelector('.done'),
 	date_text = document.querySelector('.date-text'),
-	running_count = 0,
+	running_count_daily = 0,
+	running_count_weekly = 0,
 	date = new Date(),
 	options = {
 	  weekday: "long",
@@ -14,6 +17,7 @@ var header = document.querySelector('.header'),
 	onboarding_step,
 	onboarding_step_screen1 = document.querySelector('#intro--1'),
 	onboarding_step_screen2 = document.querySelector('#intro--2'),
+	well_done_screen = document.querySelector('.welldone'),
 	my_name,
 	my_name_field = document.querySelector('.intro--name'),
 	show_my_name = document.querySelector('.personal-name'),
@@ -22,6 +26,7 @@ var header = document.querySelector('.header'),
 	app_icon = document.querySelectorAll('.app-icon'),
 	my_app_icon,
 	set_icon = document.querySelector('.js--set-icon'),
+	close_welldone = document.querySelector('.js--close-overlay'),
 	current_logo = document.querySelector('.logo'),
 	current_app_icon = document.querySelector('.app-icon-markup'),
 	current_favicon = document.querySelector('.favicon-markup'),
@@ -32,19 +37,20 @@ var header = document.querySelector('.header'),
 // 	console.log(localStorage.getItem('Last day used'));
 // }
 
+// set / handle onboarding
 function doOnboarding() {
 	my_name_field.onblur = function() {
 	my_name = this.value;
-	console.log(my_name);
 
+	// name interactions
 	if(my_name != '') {
 		set_name.disabled = false;
-		// set_name.focus();
 		show_my_name.innerHTML = my_name;
 		show_my_name_header.innerHTML = my_name;
 		localStorage.setItem('My name', my_name);
 	}
 
+	// go from name to image screen
 	set_name.onclick = function() {
 		onboarding_step_screen1.classList.add('hidden');
 		setTimeout(function(){
@@ -52,11 +58,11 @@ function doOnboarding() {
 		}, 220);
 	}
 
+	// choose image interactions
 	app_icon.forEach(function(ai) {
 		ai.onclick = function() {
 			my_app_icon = this.src;
 			localStorage.setItem('App icon', my_app_icon);
-			console.log(my_app_icon);
 
 			set_icon.disabled = false;
 			current_logo.src = my_app_icon;
@@ -65,6 +71,7 @@ function doOnboarding() {
 		}
 	});
 
+	// go from image screen to chore list
 	set_icon.onclick = function() {
 		onboarding_step_screen2.classList.add('hidden');
 		setTimeout(function(){
@@ -79,6 +86,7 @@ function doOnboarding() {
 	}
 }
 
+// check onboarding status on page load
 if (!localStorage.getItem('Has onboarded')) {
 	onboarding_step++;
 	doOnboarding();
@@ -93,54 +101,85 @@ if (!localStorage.getItem('Has onboarded')) {
 	show_my_name_header.innerHTML = localStorage.getItem('My name');
 }
 
+// check chore status while interating
 chores.forEach(function(chore) {
 	chore.onclick = function() {
 		setChoreStatus(chore);
 	}
 });
 
+// set chore status on page load
 function setChoreOnLoad(el){
 	var name = el.name,
 		value = localStorage.getItem(name),
-		is_done = value == 'true' ? true : false;
-
-	// console.log(name, value);
+		is_done = value == 'true' ? true : false,
+		is_daily = el.classList.contains('cb--daily') ? true : false;
 
 	if (is_done) {
 		el.checked = true;
-		running_count++;
 	}
 
-	setCount();
-
-	console.log(running_count);
+	updateGlobalCount(is_done, is_daily, true);
 }
 
+// set chore status / save locally
 function setChoreStatus(el){
 	var name = el.name,
-		is_done = el.checked ? true : false;
+		is_done = el.checked ? true : false,
+		is_daily = el.classList.contains('cb--daily') ? true : false;
 
 	localStorage.setItem(name, is_done);
-	// console.log(name, is_done);
 
-	if (is_done) {
-		running_count++;
-	} else {
-		running_count--;
-	}
-
-	setCount();
-
-	console.log(running_count);
+	updateGlobalCount(is_done, is_daily, false);
 }
 
-function setCount() {
-	done.innerHTML = running_count;
+// update global count for chores
+function updateGlobalCount(is_done, is_daily, is_on_load) {
+	console.log(is_done, is_daily);
+
+	if (is_done) {
+		if (is_daily) {
+			running_count_daily++;
+		} else {
+			running_count_weekly++;
+		}
+	} else {
+		if (is_on_load) return; // if on page load, skip decrementing
+		if (is_daily) {
+			running_count_daily--;
+		} else {
+			running_count_weekly--;
+		}
+	}
+
+	if (is_on_load) return; // if on page load, skip success
+
+	if (is_daily && running_count_daily == daily_chores) {
+		showSuccessMessage(true);
+	}
+
+	if (!is_daily && running_count_weekly == weekly_chores) {
+		showSuccessMessage(false);
+	}
+}
+
+// show success message
+function showSuccessMessage(is_daily) {
+	var chore_type = document.querySelector('.chore-type'),
+		chore_type_message = is_daily ? 'daily chores' : 'weekly chores';
+
+	well_done_screen.classList.add('fadein');
+	// well_done_screen.classList.remove('hidden');
+	chore_type.innerHTML = chore_type_message;
+
+	close_welldone.onclick = function() {
+		setTimeout(function(){
+			well_done_screen.classList.remove('fadein');
+		}, 220);
+	}
 }
 
 window.onload = function() {
-	// console.log('loaded!');
-
 	chores.forEach(function(chore) {
 		setChoreOnLoad(chore);
 	});

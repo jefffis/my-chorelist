@@ -30,6 +30,15 @@
         <h1 class="title">
           <span class="personalize"></span>&rsquo;s Chores
         </h1>
+
+        <!-- date -->
+        <h2 class="body date cf">
+          <span class="date-text"></span>
+          <!-- <span class="total">
+            <span class="done">0</span> of 12
+          </span> -->
+        </h2>
+        <!--/ date -->
       </div>
     </header>
     <!--/ header -->
@@ -37,14 +46,16 @@
     <!-- onboarding, welcome -->
     <section class="intro _hidden" id="intro--1">
       <div class="intro--content">
-        <span class="h1">Hi there 👋</span>
-        <p class="body--large">
-          Welcome to <strong>My Chores</strong>!
-          <br />
-          What&rsquo;s your name?
-        </p>
-        <input type="text" class="intro--name" />
-        <button type="button" disabled class="btn js--set-name">Continue</button>
+        <div class="intro--container">
+          <span class="h1">Hi there 👋</span>
+          <p class="body--large">
+            Welcome to <strong>My Chores</strong>!
+            <br />
+            What&rsquo;s your name?
+          </p>
+          <input type="text" class="intro--name" />
+          <button type="button" disabled class="btn js--set-name">Next, pick an image 👉</button>
+        </div>
       </div>
     </section>
     <!--/ onboarding, welcome -->
@@ -52,21 +63,23 @@
     <!-- onboarding, greeting -->
     <section class="intro hidden" id="intro--2">
       <div class="intro--content">
-        <span class="h1">Welcome <span class="personal-name"></span>!</span>
-        <p class="body--large">
-          Let&rsquo;s pick an icon for you 👇
-        </p>
-        <div class="intro--images mar-bot--16">
-          <div class="grid grid--2 grid-gap--12">
-            <img src="images/icon--music.png" tabindex="0" class="app-icon" alt="" />
-            <img src="images/icon--bird.png" tabindex="0" class="app-icon" alt="" />
+        <div class="intro--container">
+          <span class="h1">Welcome <span class="personal-name"></span>!</span>
+          <p class="body--large">
+            Let&rsquo;s pick an icon for you 👇
+          </p>
+          <div class="intro--images mar-bot--16">
+            <div class="grid grid--2 grid-gap--12">
+              <img src="images/icon--music.png" tabindex="0" class="app-icon" alt="" />
+              <img src="images/icon--bird.png" tabindex="0" class="app-icon" alt="" />
+            </div>
+            <div class="grid grid--2 grid-gap--12">
+              <img src="images/icon--horse.png" tabindex="0" class="app-icon" alt="" />
+              <img src="images/icon--panda.png" tabindex="0" class="app-icon" alt="" />
+            </div>
           </div>
-          <div class="grid grid--2 grid-gap--12">
-            <img src="images/icon--horse.png" tabindex="0" class="app-icon" alt="" />
-            <img src="images/icon--panda.png" tabindex="0" class="app-icon" alt="" />
-          </div>
+          <button type="button" disabled class="btn js--set-icon">Let&rsquo;s get started 💪</button>
         </div>
-        <button type="button" disabled class="btn js--set-icon">Get started</button>
       </div>
     </section>
     <!--/ onboarding, greeting -->
@@ -74,137 +87,151 @@
     <!-- my chores -->
     <section class="chores hidden" id="chores">
       
-      <!-- date -->
-      <h2 class="body date cf">
-        <span class="date-text"></span>
-        <span class="total">
-          <span class="done">0</span> of 12
-        </span>
-      </h2>
-      <!--/ date -->
+      
+      <h3 class="subtitle">Daily chores</h3>
 
-      <!-- chore -->
-      <label class="block chore cf">
-        <input type="checkbox" name="Make my bed" class="cb checkbox--hidden" />
-        <span class="checkbox--toggle"></span>
-        <span class="checkbox--label">
-          Make my bed in the morning
-        </span>
-      </label>
-      <!--/ chore -->
+      <!-- daily chores -->
 
-      <!-- chore -->
-      <label class="block chore cf">
-        <input type="checkbox" name="Brush hair, am" class="cb checkbox--hidden" />
-        <span class="checkbox--toggle"></span>
-        <span class="checkbox--label">
-          Brush hair in the morning
-        </span>
-      </label>
-      <!--/ chore -->
+        <div class="chore--container mar-bot--16">
+          <!-- chore -->
+          <label class="block chore cf">
+            <input type="checkbox" name="Make my bed" class="cb cb--daily checkbox--hidden" />
+            <span class="checkbox--toggle"></span>
+            <span class="checkbox--label">
+              Make my bed (morning)
+            </span>
+          </label>
+          <!--/ chore -->
 
-      <!-- chore -->
-      <label class="block chore cf">
-        <input type="checkbox" name="Read 30 mins" class="cb checkbox--hidden" />
-        <span class="checkbox--toggle"></span>
-        <span class="checkbox--label">
-          Read for 30 minutes
-        </span>
-      </label>
-      <!--/ chore -->
+          <!-- chore -->
+          <label class="block chore cf">
+            <input type="checkbox" name="Brush hair, am" class="cb cb--daily checkbox--hidden" />
+            <span class="checkbox--toggle"></span>
+            <span class="checkbox--label">
+              Brush hair (morning)
+            </span>
+          </label>
+          <!--/ chore -->
 
-      <!-- chore -->
-      <label class="block chore cf">
-        <input type="checkbox" name="Clean bedroom" class="cb checkbox--hidden" />
-        <span class="checkbox--toggle"></span>
-        <span class="checkbox--label">
-          Clean my bedroom before bed
-        </span>
-      </label>
-      <!--/ chore -->
+          <!-- chore -->
+          <label class="block chore cf">
+            <input type="checkbox" name="Read 30 mins" class="cb cb--daily checkbox--hidden" />
+            <span class="checkbox--toggle"></span>
+            <span class="checkbox--label">
+              Read for 30 minutes
+            </span>
+          </label>
+          <!--/ chore -->
 
-      <!-- chore -->
-      <label class="block chore cf">
-        <input type="checkbox" name="Brush hair, pm" class="cb checkbox--hidden" />
-        <span class="checkbox--toggle"></span>
-        <span class="checkbox--label">
-          Brush hair before bed
-        </span>
-      </label>
-      <!--/ chore -->
+          <!-- chore -->
+          <label class="block chore cf">
+            <input type="checkbox" name="Do homework" class="cb cb--daily checkbox--hidden" />
+            <span class="checkbox--toggle"></span>
+            <span class="checkbox--label">
+              Do my homework
+            </span>
+          </label>
+          <!--/ chore -->
 
-      <!-- chore -->
-      <label class="block chore cf">
-        <input type="checkbox" name="Wash hair" class="cb checkbox--hidden" />
-        <span class="checkbox--toggle"></span>
-        <span class="checkbox--label">
-          Wash my hair, 2x a week
-        </span>
-      </label>
-      <!--/ chore -->
+          <!-- chore -->
+          <label class="block chore cf">
+            <input type="checkbox" name="Pack lunch" class="cb cb--daily checkbox--hidden" />
+            <span class="checkbox--toggle"></span>
+            <span class="checkbox--label">
+              Pack lunch/backpack for school
+            </span>
+          </label>
+          <!--/ chore -->
 
-      <!-- chore -->
-      <label class="block chore cf">
-        <input type="checkbox" name="Clean up toys" class="cb checkbox--hidden" />
-        <span class="checkbox--toggle"></span>
-        <span class="checkbox--label">
-          Clean up toys/books each night
-        </span>
-      </label>
-      <!--/ chore -->
+          <!-- chore -->
+          <label class="block chore cf">
+            <input type="checkbox" name="Clean bedroom" class="cb cb--daily checkbox--hidden" />
+            <span class="checkbox--toggle"></span>
+            <span class="checkbox--label">
+              Clean bedroom (night)
+            </span>
+          </label>
+          <!--/ chore -->
 
-      <!-- chore -->
-      <label class="block chore cf">
-        <input type="checkbox" name="Wash laundry" class="cb checkbox--hidden" />
-        <span class="checkbox--toggle"></span>
-        <span class="checkbox--label">
-          Wash my laundy, when needed
-        </span>
-      </label>
-      <!--/ chore -->
+          <!-- chore -->
+          <label class="block chore cf">
+            <input type="checkbox" name="Wash hair" class="cb cb--daily checkbox--hidden" />
+            <span class="checkbox--toggle"></span>
+            <span class="checkbox--label">
+              Shower or tub (night)
+            </span>
+          </label>
+          <!--/ chore -->
 
-      <!-- chore -->
-      <label class="block chore cf">
-        <input type="checkbox" name="Put away laundry" class="cb checkbox--hidden" />
-        <span class="checkbox--toggle"></span>
-        <span class="checkbox--label">
-          Put away my laundry, when needed
-        </span>
-      </label>
-      <!--/ chore -->
+          <!-- chore -->
+          <label class="block chore cf">
+            <input type="checkbox" name="Brush hair, pm" class="cb cb--daily checkbox--hidden" />
+            <span class="checkbox--toggle"></span>
+            <span class="checkbox--label">
+              Brush hair (night)
+            </span>
+          </label>
+          <!--/ chore -->
 
-      <!-- chore -->
-      <label class="block chore cf">
-        <input type="checkbox" name="Do homework" class="cb checkbox--hidden" />
-        <span class="checkbox--toggle"></span>
-        <span class="checkbox--label">
-          Do my homework
-        </span>
-      </label>
-      <!--/ chore -->
+          <!-- chore -->
+          <label class="block chore cf">
+            <input type="checkbox" name="Clean up toys" class="cb cb--daily checkbox--hidden" />
+            <span class="checkbox--toggle"></span>
+            <span class="checkbox--label">
+              Clean toys/books (night)
+            </span>
+          </label>
+          <!--/ chore -->
+        </div>
 
-      <!-- chore -->
-      <label class="block chore cf">
-        <input type="checkbox" name="Pack lunch" class="cb checkbox--hidden" />
-        <span class="checkbox--toggle"></span>
-        <span class="checkbox--label">
-          Pack lunch for school
-        </span>
-      </label>
-      <!--/ chore -->
+      <!--/ daily chores -->
 
-      <!-- chore -->
-      <label class="block chore cf">
-        <input type="checkbox" name="Pack backpack" class="cb checkbox--hidden" />
-        <span class="checkbox--toggle"></span>
-        <span class="checkbox--label">
-          Pack backpack for school
-        </span>
-      </label>
-      <!--/ chore -->
+      <h3 class="subtitle">Weekly chores</h3>
+
+      <!-- weekly chores -->
+
+        <div class="chore--container">
+          <!-- chore -->
+          <label class="block chore cf">
+            <input type="checkbox" name="Wash laundry" class="cb cb--weekly checkbox--hidden" />
+            <span class="checkbox--toggle"></span>
+            <span class="checkbox--label">
+              Wash laundry, 1x week
+            </span>
+          </label>
+          <!--/ chore -->
+
+          <!-- chore -->
+          <label class="block chore cf">
+            <input type="checkbox" name="Put away laundry" class="cb cb--weekly checkbox--hidden" />
+            <span class="checkbox--toggle"></span>
+            <span class="checkbox--label">
+              Put away laundry, 1x week
+            </span>
+          </label>
+          <!--/ chore -->
+        </div>
+
+      <!--/ weekly chores -->
 
     </section>
     <!--/ my chores -->
+
+    <!-- when I finish a section, show this -->
+    <div class="outro hidden intro welldone">
+      <div class="intro--content">
+        <div class="intro--container">
+          <img src="images/yayay.gif" class="outro--image" />
+          <span class="h1">Way to go <span class="personal-name"></span> 💪</span>
+          <p class="body--large mar-bot--24">
+            You finished your <span class="chore-type"></span>! Give yourself a high five 🙌
+          </p>
+          <button type="button" class="btn js--close-overlay">Done for now</button>
+        </div>
+        </div>
+      </div>
+    </div>
+    <!--/ when I finish a section, show this -->
 
   </section>
 
