@@ -345,7 +345,7 @@ h5, .h5 {
   outline: none;
 /*  padding: 0 24px;*/
   width: 100%;
-/*  transition: background-color 0.24s ease-in-out;*/
+  transition: transform 0.12s ease-in-out;
 }
 /*.btn:hover {
   background-color: var(--darkpurple);
@@ -357,6 +357,7 @@ h5, .h5 {
   background-color: var(--darkblue);
   color: rgba(255 255 255 / 0.64);
   box-shadow: none;
+  transform: scale(0.9);
 }
 .btn:disabled {
   cursor: not-allowed;

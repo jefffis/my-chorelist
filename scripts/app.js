@@ -52,10 +52,12 @@ function doOnboarding() {
 
 	// go from name to image screen
 	set_name.onclick = function() {
-		onboarding_step_screen1.classList.add('hidden');
+		setTimeout(function(){
+			onboarding_step_screen1.classList.add('hidden');
+		}, 220);
 		setTimeout(function(){
 			onboarding_step_screen2.classList.remove('hidden');
-		}, 220);
+		}, 440);
 	}
 
 	// choose image interactions
@@ -73,12 +75,14 @@ function doOnboarding() {
 
 	// go from image screen to chore list
 	set_icon.onclick = function() {
-		onboarding_step_screen2.classList.add('hidden');
+		setTimeout(function(){
+			onboarding_step_screen2.classList.add('hidden');
+		}, 220);
 		setTimeout(function(){
 			window.scrollTo(0, 0);
 			header.classList.remove('hidden');
 			chores_list.classList.remove('hidden');
-		}, 220);
+		}, 440);
 
 		has_onboarded = localStorage.setItem('Has onboarded', true);
 	}
