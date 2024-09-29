@@ -424,6 +424,12 @@ h5, .h5 {
   transform: translateX(-50%);
 }
 
+@media screen and (min-width: 560px) {
+  .outro .intro--content {
+    min-width: 560px;
+  }
+}
+
 .outro--image {
   display: block;
   margin: auto;
