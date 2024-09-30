@@ -153,7 +153,6 @@ function resetDailyChores(){
 	}
 
 	// check if today is Sunday, reset weekly chores today
-	// TODO prevent them RESETTING all day on Sunday...
 	if(day_of_week == 'Sunday') {
 		var today = date.toLocaleDateString("en-US", options);
 
@@ -206,9 +205,10 @@ function showSuccessMessage(is_daily) {
 	var chore_type = document.querySelector('.chore-type'),
 		chore_type_message = is_daily ? 'daily chores' : 'weekly chores';
 
-	well_done_screen.classList.add('fadein');
-	// well_done_screen.classList.remove('hidden');
-	chore_type.innerHTML = chore_type_message;
+	setTimeout(function(){
+		well_done_screen.classList.add('fadein');
+		chore_type.innerHTML = chore_type_message;
+	}, 220);
 
 	close_welldone.onclick = function() {
 		setTimeout(function(){

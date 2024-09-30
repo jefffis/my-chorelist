@@ -395,6 +395,9 @@ h5, .h5 {
 .app-icon:focus {
   box-shadow: 0 0 0 2px var(--offwhite), 0 0 0 6px var(--focus);
 }
+.app-icon:active {
+  transform: scale(0.9);
+}
 
 /* hide / show */
 .hidden {
