@@ -10,10 +10,10 @@ var header = document.querySelector('.header'),
 	date = new Date(),
 	options = {
 	  weekday: "long",
-	  // year: "numeric",
 	  month: "long",
 	  day: "numeric",
 	},
+	day_of_week = date.toLocaleDateString("en-US", options).split(',')[0],
 	onboarding_step,
 	onboarding_step_screen1 = document.querySelector('#intro--1'),
 	onboarding_step_screen2 = document.querySelector('#intro--2'),
@@ -31,11 +31,6 @@ var header = document.querySelector('.header'),
 	current_app_icon = document.querySelector('.app-icon-markup'),
 	current_favicon = document.querySelector('.favicon-markup'),
 	most_recent_date;
-
-// if (localStorage.getItem('Last day used')) {
-// 	localStorage.setItem('Last day used', date);
-// 	console.log(localStorage.getItem('Last day used'));
-// }
 
 // set / handle onboarding
 function doOnboarding() {
@@ -143,7 +138,6 @@ function setChoreStatus(el){
 function resetDailyChores(){
 	var were_chores_done_yesterday = localStorage.getItem('Chores done yesterday');
 
-	console.log(were_chores_done_yesterday);
 	// set today's date
 	localStorage.setItem('Chores done yesterday', date.toLocaleDateString("en-US", options));
 
@@ -157,12 +151,20 @@ function resetDailyChores(){
 			if (is_daily) localStorage.setItem(name, 'false');
 		});
 	}
+
+	// check if today is Monday, reset weekly chores today
+	if(day_of_week == 'Monday') {
+		// resent daily chores if I did them yesterday
+		chores.forEach(function(chore) {
+			var name = chore.name,
+			is_daily = chore.classList.contains('cb--weekly') ? true : false;
+			if (is_daily) localStorage.setItem(name, 'false');
+		});
+	}
 }
 
 // update global count for chores
 function updateGlobalCount(is_done, is_daily, is_on_load) {
-	console.log(is_done, is_daily);
-
 	if (is_done) {
 		if (is_daily) {
 			running_count_daily++;
