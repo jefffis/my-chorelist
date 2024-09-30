@@ -1,6 +1,7 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&family=Fredoka:wght@700&display=swap');
 
 * {
+/*  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);*/
   border: 0;
   box-sizing: border-box;
   margin: 0;
@@ -30,7 +31,7 @@ input, button, textarea, select {
 html {
   background-color: var(--offwhite1);
   color: var(--black);
-  font: normal 16px/1.5 -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font: normal 16px/1.5 "Fira Sans", -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
 html, body {
@@ -63,6 +64,15 @@ a:active {
 h1, h2, h3, h4 {
   font-weight: 700;
   line-height: 1.25;
+}
+
+.fredoka {
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .block {
@@ -228,7 +238,7 @@ h5, .h5 {
 
 .subtitle {
   border-bottom: 1px solid var(--grey1);
-  font-size: 16px;
+  font-size: 20px;
 /*  margin-bottom: 8px;*/
   padding-bottom: 16px;
 }
@@ -402,12 +412,12 @@ h5, .h5 {
   background: rgba(37, 38, 39, 0.64);
   bottom: -50%;
   left: 0;
-/*  height: auto;*/
   opacity: 0;
   padding-top: 24px;
   position: fixed;
   width: 100%;
   z-index: 3;
+  pointer-events: none;
 }
 .outro .intro--content {
   background-color: var(--white);
@@ -437,23 +447,24 @@ h5, .h5 {
 }
 
 .fadein {
-  display: block;
   bottom: 0;
   opacity: 1;
 
-  animation: fadein 0.24s ease-in-out;
+  animation: fadein 0.4s ease-in-out;
+
+  pointer-events: initial;
 }
 
 @keyframes fadein {
   0% {
-    display: none;
+/*    display: none;*/
     bottom: -50%;
     opacity: 0;
   }
   100% {
-    display: block;
+/*    display: block;*/
     bottom: 0;
-    opacity: 0;
+    opacity: 1;
   }
 }
 
