@@ -152,8 +152,8 @@ function resetDailyChores(){
 		});
 	}
 
-	// check if today is Monday, reset weekly chores today
-	if(day_of_week == 'Monday') {
+	// check if today is Sunday, reset weekly chores today
+	if(day_of_week == 'Sunday') {
 		// resent daily chores if I did them yesterday
 		chores.forEach(function(chore) {
 			var name = chore.name,
