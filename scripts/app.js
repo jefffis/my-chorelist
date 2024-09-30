@@ -153,14 +153,15 @@ function resetDailyChores(){
 	}
 
 	// check if today is Sunday, reset weekly chores today
-	if(day_of_week == 'Sunday') {
-		// resent daily chores if I did them yesterday
-		chores.forEach(function(chore) {
-			var name = chore.name,
-			is_daily = chore.classList.contains('cb--weekly') ? true : false;
-			if (is_daily) localStorage.setItem(name, 'false');
-		});
-	}
+	// TODO prevent them RESETTING all day on Sunday...
+	// if(day_of_week == 'Sunday') {
+	// 	// resent daily chores if I did them yesterday
+	// 	chores.forEach(function(chore) {
+	// 		var name = chore.name,
+	// 		is_daily = chore.classList.contains('cb--weekly') ? true : false;
+	// 		if (is_daily) localStorage.setItem(name, 'false');
+	// 	});
+	// }
 }
 
 // update global count for chores
