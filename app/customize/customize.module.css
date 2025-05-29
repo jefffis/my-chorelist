@@ -1,0 +1,35 @@
+.header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.backButton {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #0070f3;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.backButton:hover {
+  background-color: #0051a8;
+}
+
+.main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: 'Fredoka', sans-serif;
+} 

@@ -1,0 +1,18 @@
+.chore {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.checkbox {
+  margin-right: 0.5rem;
+}
+
+.label {
+  font-size: 1rem;
+  color: #333;
+}
