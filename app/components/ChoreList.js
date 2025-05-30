@@ -160,7 +160,7 @@ export default function ChoreList() {
         <div className={`${styles.choreList} mar-bot--16`}>
           {chores.daily.length === 0 ? (
             <div className={styles.empty}>
-              <p>No daily chores available. Add some in the customize section!</p>
+              <p className={`body--large`}>No daily chores</p>
             </div>
           ) : (
             chores.daily.map(chore => (
@@ -176,7 +176,7 @@ export default function ChoreList() {
         <div className={styles.choreList}>
           {chores.weekly.length === 0 ? (
             <div className={styles.empty}>
-              <p>No weekly chores available. Add some in the customize section!</p>
+              <p className={`body--large`}>No weekly chores</p>
             </div>
           ) : (
             chores.weekly.map(chore => (
