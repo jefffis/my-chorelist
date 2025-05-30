@@ -12,6 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://mychorelist.us'),
   title: 'My Chorelist: A simple way to stay on track, for you and your kiddos',
   description: 'A simple chore list app to help you stay organized',
   openGraph: {
