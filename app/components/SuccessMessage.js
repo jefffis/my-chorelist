@@ -8,7 +8,7 @@ export default function SuccessMessage({ type, onClose }) {
 
   const handleClose = () => {
     setIsVisible(false);
-    setTimeout(onClose, 300); // Wait for fade out animation
+    // setTimeout(onClose, 300); // Wait for fade out animation
   };
 
   if (!isVisible) return null;
@@ -16,12 +16,14 @@ export default function SuccessMessage({ type, onClose }) {
   return (
     <div className={styles.overlay}>
       <div className={styles.container}>
-        <img src="/images/yayay.gif" alt="Celebration" className={styles.image} />
-        <h2 className={styles.title}>Great job! 🎉</h2>
-        <p className={styles.message}>You completed all your {type} chores!</p>
-        <button onClick={handleClose} className={styles.button}>
-          Keep it up! 💪
-        </button>
+        <div className={styles.content}>
+          <img src="/images/yayay.gif" alt="Celebration" className={styles.image} />
+          <h2 className={`h1 fredoka`}>Way to go 💪</h2>
+          <p className={`body--large mar-bot--24`}>You completed your {type} chores&mdash;now give yourself a high five 🙌</p>
+          <button onClick={handleClose} className={`btn`}>
+            Done for now
+          </button>
+        </div>
       </div>
     </div>
   );

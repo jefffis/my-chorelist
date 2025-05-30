@@ -143,7 +143,7 @@ h5, .h5 {
 .grid-gap--12 {
     padding: 12px;
     grid-column-gap: 12px;
-    grid-row-gap: 12px;
+    grid-row-gap: 24px;
 }
 .grid-gap--24 {
     grid-column-gap: 24px;
