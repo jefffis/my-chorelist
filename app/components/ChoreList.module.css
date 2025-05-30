@@ -1,0 +1,26 @@
+/* content container */
+.container {
+  margin: auto;
+  max-width: 560px;
+}
+
+.subtitle {
+  border-bottom: 1px solid var(--grey1);
+  font-size: 20px;
+  padding-bottom: 16px;
+}
+
+.chores {
+  margin-top: 96px;
+  padding: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.empty {
+  background-color: var(--tan);
+  border-radius: 12px;
+  margin-top: 24px;
+  padding: 32px;
+  text-align: center;
+}

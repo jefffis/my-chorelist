@@ -1,0 +1,53 @@
+.chore {
+  cursor: pointer;
+  padding: 20px 0;
+  position: relative;
+}
+.chore:active .checkboxLabel {
+  opacity: 0.64;
+}
+.chore:nth-of-type(n+2) {
+  border-top: 1px solid var(--grey1);
+}
+.checkboxHidden {
+  /* remove checkbox from UI */
+  position: absolute;
+  left: -9999px;
+}
+.checkboxToggle {
+  background-color: var(--grey1);
+  border-radius: 20px;
+  display: inline-block;
+  float: right;
+  height: 32px;
+  position: absolute;
+  right: 0;
+  transition: background-color 0.16s ease-in-out;
+  width: 56px;
+}
+.checkboxToggle::before {
+  background-color: var(--white);
+  border-radius: 20px;
+  content: "";
+  display: inline-block;
+  height: 24px;
+  left: 4px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.24s ease-in-out;
+  width: 24px;
+}
+.checkboxHidden:checked + .checkboxToggle {
+  background-color: var(--blue);
+}
+.checkboxHidden:checked + .checkboxToggle::before {
+  left: calc(100% - 28px);
+}
+.checkboxLabel {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 32px;
+  vertical-align: top;
+  width: calc(100% - 72px);
+}

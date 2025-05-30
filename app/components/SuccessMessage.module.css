@@ -1,0 +1,53 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.container {
+  background-color: var(--white);
+  border-radius: 12px 12px 0 0;
+  bottom: 0;
+  box-shadow: 0 8px 16px rgba(37, 38, 39, 0.4);
+  display: block;
+  left: 50%;
+  margin: auto;
+  min-width: calc(100% - 48px);
+  max-width: 560px;
+  padding: 40px 24px;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+  /*animation: slideIn 0.3s ease-in-out;*/
+
+  min-width: 560px;
+}
+
+.content {
+  margin: auto;
+  max-width: 300px;
+}
+
+.image {
+  display: block;
+  margin: auto;
+  max-width: 180px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
