@@ -134,7 +134,6 @@ export default function ChoreList() {
       if (allCompleted) {
         setSuccessType(type);
         setShowSuccess(true);
-        setTimeout(() => setShowSuccess(false), 3000);
       }
 
       return updatedChores;
@@ -191,7 +190,7 @@ export default function ChoreList() {
       </section>
 
       {showSuccess && (
-        <SuccessMessage type={successType} />
+        <SuccessMessage type={successType} onClose={() => setShowSuccess(false)} />
       )}
     </div>
   );
