@@ -1,15 +1,18 @@
+/* content container */
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
+  margin: auto;
+  max-width: 560px;
 }
 
 .subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  font-family: 'Fredoka', sans-serif;
+  border-bottom: 1px solid var(--grey1);
+  font-size: 20px;
+  padding-bottom: 16px;
 }
 
-.choreContainer {
-  margin-bottom: 2rem;
+.chores {
+  margin-top: 96px;
+  padding: 24px;
+  position: relative;
+  z-index: 1;
 }

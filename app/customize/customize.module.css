@@ -1,35 +1,51 @@
+/* header + logo */
 .header {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  margin-bottom: 1rem;
-  text-align: center;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--grey1);
+  height: 96px;
+  left: 0;
+  padding: 20px 24px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 }
-
-.backButton {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: #0070f3;
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+.container {
+  margin: auto;
+  max-width: calc(560px - 48px);
+  position: relative;
 }
-
-.backButton:hover {
-  background-color: #0051a8;
+.logo {
+  border-radius: 16px;
+  height: 48px;
+  width: 48px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
-
-.main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
 .title {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 24px;
+  line-height: 40px;
   text-align: center;
-  font-family: 'Fredoka', sans-serif;
-} 
+}
+.date {
+  color: var(--blue);
+  font-weight: 400;
+  padding-bottom: 4px;
+  position: relative;
+  text-align: center;
+  top: -4px;
+}
+.total {
+  float: right;
+  font-weight: 700;
+}
+.customizeLink {
+  display: block;
+  position: absolute;
+  height: 24px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+}

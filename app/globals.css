@@ -1,28 +1,4 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&family=Fredoka:wght@700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -30,13 +6,213 @@ body {
   margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* color variables */
+:root {
+  --black: rgb(37, 38, 39);
+  --darkgrey: #a19e9e;
+  --grey1: #D4D4D4;
+  --grey2: #A2A2A3;
+  --grey3: #707071;
+  --offwhite: rgb(255, 244, 228);
+  --offwhite1: rgba(255, 244, 228, 0.4);
+  --lightblue: rgb(179, 179, 241);
+  --green: rgb(33, 250, 144);
+  --focus: #3BBFFF;
+  --blue: rgb(52, 84, 209);
+  --darkblue: #0B2899;
+  --white: #FFF;
+  --red: #b90202;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+html {
+  background-color: var(--offwhite1);
+  color: var(--black);
+  font: normal 16px/1.5 "Fira Sans", -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+html, body {
+  min-height: 100vh;
+}
+
+input, button, textarea, select {
+  /*-webkit-appearance: none;*/
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* clearfix */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+.cf:after {
+    clear: both;
+}
+
+a:link, a:visited {
+  color: var(--blue);
+  font-weight: 700;
+}
+a:hover {
+  text-decoration: none;
+}
+/*a:visited {
+  color: #0D85F4;
+}*/
+a:focus {
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #CBE9FF;
+  border-radius: 3px;
+  outline: none;
+}
+a:active {
+  opacity: .64;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.fredoka {
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.block {
+  display: block;
+}
+
+h1, .h1 {
+  font-size: 40px;
+  font-weight: 700;
+}
+h2, .h2 {
+  font-size: 32px;
+}
+h3, .h3 {
+  font-size: 24px;
+}
+h4, .h4 {
+  font-size: 20px;
+}
+h5, .h5 {
+  font-size: 18px;
+}
+
+.mar-bot--8 {
+  margin-bottom: 8px;
+}
+.mar-bot--12 {
+  margin-bottom: 12px;
+}
+.mar-bot--16 {
+  margin-bottom: 16px;
+}
+.mar-bot--24 {
+  margin-bottom: 24px;
+}
+.mar-bot--40 {
+  margin-bottom: 40px;
+}
+
+.body--large {
+  font-size: 20px;
+}
+.body {
+  font-size: 16px;  
+}
+.body--small {
+  font-size:  14px;
+}
+.microcopy {
+  font-size: 13px;
+}
+
+/* grid */
+.grid {
+    align-items: center;
+    display: grid;
+    margin: auto;
+    max-width: 800px;
+    padding: 24px 0;
+}
+.grid-gap--12 {
+    padding: 12px;
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+}
+.grid-gap--24 {
+    grid-column-gap: 24px;
+    grid-row-gap: 24px;
+}
+.grid-gap--32 {
+    grid-column-gap: 32px;
+}
+.grid-gap--80 {
+    grid-column-gap: 80px;
+}
+.grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+.grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+.grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--blue);
+  border: 0;
+  border-radius: 16px;
+  color: var(--white);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 56px;
+  padding: 0 24px;
+  outline: none;
+  width: 100%;
+  transition: transform 0.12s ease-in-out;
+}
+.btn:focus {
+  box-shadow: 0 0 0 2px var(--offwhite), 0 0 0 6px var(--focus);
+}
+.btn:active {
+  background-color: var(--darkblue);
+  color: rgba(255 255 255 / 0.64);
+  box-shadow: none;
+  transform: scale(0.9);
+}
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+.btnDelete {
+  background-color: var(--red);
+}
+.btnEnabled {
+  background-color: var(--darkgrey);
+}
+/*.btnDisabled {
+  background-color: var(--black);
+}*/
+.btnSmall {
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 32px;
+  padding: 0 16px;
+  width: auto;
+}
+.btnForm {
+  border-radius: 4px;
+  line-height: 40px;
+  padding: 0 16px;
+  width: auto;
 }

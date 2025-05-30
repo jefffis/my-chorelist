@@ -55,9 +55,9 @@ export default function AddChoreForm() {
         <button
           type="submit"
           disabled={!choreName.trim()}
-          className={styles.button}
+          className={`${styles.btn} btn btnForm`}
         >
-          Add Chore
+          Add
         </button>
       </div>
     </form>

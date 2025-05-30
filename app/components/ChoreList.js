@@ -155,9 +155,9 @@ export default function ChoreList() {
 
   return (
     <div className={styles.container}>
-      <section className={styles.section}>
-        <h2 className={styles.title}>Daily Chores</h2>
-        <div className={styles.choreList}>
+      <section className={styles.chores}>
+        <h3 className={`${styles.subtitle} fredoka`}>Daily Chores</h3>
+        <div className={`${styles.choreList} mar-bot--16`}>
           {chores.daily.length === 0 ? (
             <div className={styles.empty}>
               <p>No daily chores available. Add some in the customize section!</p>
@@ -172,10 +172,7 @@ export default function ChoreList() {
             ))
           )}
         </div>
-      </section>
-
-      <section className={styles.section}>
-        <h2 className={styles.title}>Weekly Chores</h2>
+        <h3 className={`${styles.subtitle} fredoka`}>Weekly Chores</h3>
         <div className={styles.choreList}>
           {chores.weekly.length === 0 ? (
             <div className={styles.empty}>

@@ -68,15 +68,14 @@ export default function CustomChoreList() {
   };
 
   const renderCustomChoreList = (chores) => (
-    <div className={styles.choreList}>
+    <div className={`${styles.choreList} mar-bot--16`}>
       {chores.map(chore => (
-        <div key={chore.id} className={styles.choreItem}>
-          <span className={styles.choreName}>{chore.name}</span>
-          <span className={styles.choreType}>{chore.type}</span>
+        <div key={chore.id} className={`${styles.chore} cf`}>
+          <span className={styles.choreLabel}>{chore.name}</span>
           <div className={styles.actions}>
             <button
               onClick={() => handleDelete(chore.id)}
-              className={styles.deleteButton}
+              className={`btn btnSmall btnDelete`}
             >
               Delete
             </button>
@@ -87,15 +86,14 @@ export default function CustomChoreList() {
   );
 
   const renderDefaultChoreList = (chores) => (
-    <div className={styles.choreList}>
+    <div className={`${styles.choreList} mar-bot--16`}>
       {chores.map(chore => (
-        <div key={chore.id} className={styles.choreItem}>
-          <span className={styles.choreName}>{chore.name}</span>
-          <span className={styles.choreType}>{chore.type}</span>
+        <div key={chore.id} className={`${styles.chore} cf`}>
+          <span className={styles.choreLabel}>{chore.name}</span>
           <div className={styles.actions}>
             <button
               onClick={() => handleToggleDefault(chore.id)}
-              className={`${styles.toggleButton} ${disabledDefaultChores.includes(chore.id) ? styles.disabled : styles.enabled}`}
+              className={`btn btnSmall ${disabledDefaultChores.includes(chore.id) ? 'btnDisabled' : 'btnEnabled'}`}
             >
               {disabledDefaultChores.includes(chore.id) ? 'Enable' : 'Disable'}
             </button>
@@ -110,20 +108,27 @@ export default function CustomChoreList() {
 
   return (
     <div className={styles.container}>
-      <section className={styles.section}>
-        <h2 className={styles.title}>Your Custom Chores</h2>
-        <h3 className={styles.subtitle}>Daily</h3>
-        {renderCustomChoreList(customDailyChores)}
-        <h3 className={styles.subtitle}>Weekly</h3>
-        {renderCustomChoreList(customWeeklyChores)}
-      </section>
-
-      <section className={styles.section}>
-        <h2 className={styles.title}>Default Chores</h2>
-        <h3 className={styles.subtitle}>Daily</h3>
-        {renderDefaultChoreList(defaultChores.daily)}
-        <h3 className={styles.subtitle}>Weekly</h3>
-        {renderDefaultChoreList(defaultChores.weekly)}
+      <section className={styles.chores}>
+        <div className={`mar-bot--24`}>
+          {customDailyChores.length > 0 && (
+            <>
+              <h3 className={`${styles.subtitle} fredoka`}>Custom Daily chores</h3>
+              {renderCustomChoreList(customDailyChores)}
+            </>
+          )}
+          {customWeeklyChores.length > 0 && (
+            <>
+              <h3 className={`${styles.subtitle} fredoka`}>Custom Weekly chores</h3>
+              {renderCustomChoreList(customWeeklyChores)}
+            </>
+          )}
+        </div>
+        <div className={styles.choreList}>
+          <h3 className={`${styles.subtitle} fredoka`}>Default Daily chores</h3>
+          {renderDefaultChoreList(defaultChores.daily)}
+          <h3 className={`${styles.subtitle} fredoka`}>Default Weekly chores</h3>
+          {renderDefaultChoreList(defaultChores.weekly)}
+        </div>
       </section>
     </div>
   );
