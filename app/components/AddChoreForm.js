@@ -44,14 +44,30 @@ export default function AddChoreForm() {
           placeholder="Enter chore name"
           className={styles.input}
         />
-        <select
-          value={choreType}
-          onChange={(e) => setChoreType(e.target.value)}
-          className={styles.select}
-        >
-          <option value="daily">Daily</option>
-          <option value="weekly">Weekly</option>
-        </select>
+        <div className={`${styles.radioGroup} cf`}>
+          <label className={styles.radioLabel}>
+            <input
+              type="radio"
+              name="choreType"
+              value="daily"
+              checked={choreType === 'daily'}
+              onChange={() => setChoreType('daily')}
+              className={styles.radio}
+            />
+            <span className={styles.radioCopy}>Daily</span>
+          </label>
+          <label className={styles.radioLabel}>
+            <input
+              type="radio"
+              name="choreType"
+              value="weekly"
+              checked={choreType === 'weekly'}
+              onChange={() => setChoreType('weekly')}
+              className={styles.radio}
+            />
+            <span className={styles.radioCopy}>Weekly</span>
+          </label>
+        </div>
         <button
           type="submit"
           disabled={!choreName.trim()}

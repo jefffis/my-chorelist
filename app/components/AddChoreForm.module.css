@@ -12,15 +12,14 @@
   border: 1px solid var(--grey1);
 }
 
-.input,
-.select {
+.input {
   border: 1px solid var(--grey2);
   border-radius: 4px;
   display: inline-block;
   font-size: 20px;
   line-height: 40px;
   outline: 0;
-  padding: 0 12px;
+  padding: 0 16px;
 }
 .input:focus,
 .select:focus {
@@ -28,9 +27,11 @@
   box-shadow: 0 0 0 2px var(--offwhite), 0 0 0 6px var(--focus);
 }
 .input {
-  width: 50%;
+  margin-bottom: 16px;
+  width: 100%;
 }
 .select {
+  background-color: var(--white);
   height: 40px;
   margin: 0 16px;
   padding: 0 12px;
@@ -42,4 +43,52 @@
   float: right;
   font-size: 16px;
   width: calc(30% - 32px);
+}
+
+.radioGroup {
+  border: 1px solid var(--grey2);
+  border-radius: 4px;
+  display: inline-block;
+}
+.radioCopy {
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-size: 20px;
+  line-height: 40px;
+  padding: 0 16px;
+  text-align: center;
+  width: auto;
+}
+.radio {
+  position: absolute;
+  left: -9999px;
+}
+.radio:checked + .radioCopy {
+  background-color: var(--black);
+  box-shadow: 0 0 0 1px var(--black);
+  color: var(--white);
+  font-weight: 700;
+}
+.radioLabel:nth-of-type(1) .radioCopy {
+  border-radius: 4px 0 0 4px;
+}
+.radioLabel:nth-of-type(2) .radioCopy {
+  border-radius: 0 4px 4px 0;
+}
+
+@media screen and (max-width: 799px) {
+  .input,
+  .radioGroup,
+  .btn {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+  .radioGroup {
+    margin: 16px 0;
+  }
+  .radioCopy {
+    width: 50%;
+  }
 }

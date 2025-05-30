@@ -51,6 +51,13 @@ input, button, textarea, select {
     clear: both;
 }
 
+.floatLeft {
+  float: left;
+}
+.floatRight {
+  float: right;
+}
+
 a:link, a:visited {
   color: var(--blue);
   font-weight: 700;
@@ -173,7 +180,7 @@ h5, .h5 {
   border-radius: 16px;
   color: var(--white);
   cursor: pointer;
-  font-family: inherit;
+  font-family: "Fira Sans", -apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 56px;

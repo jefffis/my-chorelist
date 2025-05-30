@@ -67,6 +67,22 @@ export default function CustomChoreList() {
     });
   };
 
+  // Helper to get all default chore IDs
+  const allDefaultChoreIds = [
+    ...defaultChores.daily.map(chore => chore.id),
+    ...defaultChores.weekly.map(chore => chore.id)
+  ];
+
+  // Check if all default chores are disabled
+  const allDefaultsDisabled = allDefaultChoreIds.every(id => disabledDefaultChores.includes(id));
+
+  // Handler for disable all
+  const handleDisableAllDefaults = () => {
+    setDisabledDefaultChores(allDefaultChoreIds);
+    localStorage.setItem('disabledDefaultChores', JSON.stringify(allDefaultChoreIds));
+    window.dispatchEvent(new Event('defaultChoresUpdated'));
+  };
+
   const renderCustomChoreList = (chores) => (
     <div className={`${styles.choreList} mar-bot--16`}>
       {chores.map(chore => (
@@ -124,7 +140,16 @@ export default function CustomChoreList() {
           )}
         </div>
         <div className={styles.choreList}>
-          <h3 className={`${styles.subtitle} fredoka`}>Default Daily chores</h3>
+          <h3 className={`${styles.subtitle} fredoka mar-bot--24 cf`}>
+            <span className={`floatLeft`}>Default Daily chores</span>
+            <button
+              className={`btn btnSmall floatRight`}
+              onClick={handleDisableAllDefaults}
+              disabled={allDefaultsDisabled}
+            >
+              Disable all
+            </button>
+          </h3>
           {renderDefaultChoreList(defaultChores.daily)}
           <h3 className={`${styles.subtitle} fredoka`}>Default Weekly chores</h3>
           {renderDefaultChoreList(defaultChores.weekly)}
